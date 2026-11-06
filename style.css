@@ -1,0 +1,199 @@
+/* =========================================
+   تنظیمات پایه
+   ========================================= */
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { overflow-x: hidden; background-color: #050505; }
+
+/* اسکرول‌بار مشکی و طلایی */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 0; }
+
+/* افکت کلیک دکمه‌ها */
+a:active, button:active { transform: scale(0.96) !important; opacity: 0.8; transition: all 0.1s ease; }
+
+
+/* =========================================
+   نورپردازی طلایی (Glow Effect) - واضح و محسوس
+   ========================================= */
+.gold-glow {
+  position: absolute;
+  border-radius: 50%;
+  /* مرکز نور بسیار پررنگ‌تر شد */
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.8) 0%, rgba(212, 175, 55, 0) 70%);
+  filter: blur(60px); /* بلور بیشتر برای پخش شدن نرم‌تر نور */
+  pointer-events: none;
+  z-index: 0; 
+}
+
+.gold-glow-1 {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  right: -10%;
+  /* سرعت ۲.۵ ثانیه برای اینکه کاربر حرکت رو ببینه */
+  animation: breathe 2.5s ease-in-out infinite alternate;
+}
+
+.gold-glow-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -10%;
+  left: -10%;
+  animation: breathe 3.5s ease-in-out infinite alternate-reverse;
+}
+
+/* انیمیشن نفس کشیدن (تغییرات واضح‌تر) */
+@keyframes breathe {
+  0% { 
+    opacity: 0.1; /* خیلی کم‌رنگ */
+    transform: scale(0.7); /* کوچک */
+  }
+  100% { 
+    opacity: 1; /* کاملاً پررنگ */
+    transform: scale(1.4); /* بزرگ و پخش شده */
+  }
+}
+
+/* =========================================
+   استایل‌های ویژه موبایل برای مدیران (حس لوکس و تکنولوژی)
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* ۱. افکت کلیک (فشرده شدن) روی کارت محصول */
+  #gallery article {
+    transition: all 0.2s ease !important;
+    position: relative;
+  }
+  
+  #gallery article:active {
+    transform: scale(0.95) !important; /* کوچیک شدن موقع کلیک */
+    border-color: #D4AF37 !important; /* حاشیه طلایی */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4) !important; /* هاله طلایی */
+  }
+
+  /* ۲. بزرگ شدن نرم عکس محصول (حس زوم کردن) */
+  #gallery article img {
+    transition: transform 0.4s ease !important;
+  }
+  
+  /* وقتی انگشت روی کارت باشه، عکس زوم میشه */
+  #gallery article:active img {
+    transform: scale(1.15) !important; 
+  }
+
+  /* ۳. تغییر رنگ دکمه سبد خرید موقع لمس */
+  #gallery button {
+    transition: all 0.2s ease !important;
+  }
+
+  #gallery button:active {
+    background-color: #D4AF37 !important;
+    color: #000 !important; /* آیکون مشکی میشه */
+    border-radius: 50% !important;
+    transform: scale(1.3) !important; /* دکمه بزرگ میشه */
+  }
+
+  /* ۴. انیمیشن لود شدن (ظاهر شدن پله‌ای کارت‌ها) */
+  /* این انیمیشن به محض باز شدن صفحه اجرا میشه */
+  #gallery article {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* تاخیر برای هر کارت */
+  #gallery article:nth-child(1) { animation-delay: 0.1s !important; }
+  #gallery article:nth-child(2) { animation-delay: 0.2s !important; }
+  #gallery article:nth-child(3) { animation-delay: 0.3s !important; }
+  #gallery article:nth-child(4) { animation-delay: 0.4s !important; }
+  #gallery article:nth-child(5) { animation-delay: 0.5s !important; }
+  #gallery article:nth-child(6) { animation-delay: 0.6s !important; }
+
+  @keyframes slideUpFade {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+
+
+/* =========================================
+   افکت پرتاب متن نیک‌نام (نسخه مخصوص موبایل)
+   ========================================= */
+.logo-orbit {
+  position: relative;
+  /* جلوگیری از بیرون زدن متن از کادر */
+  overflow: visible; 
+}
+
+/* نقطه درخشان روی لوگو */
+.glow-point {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #D4AF37;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0.6);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* متن‌هایی که قراره پرتاب بشن */
+.flying-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #F3E5AB; /* رنگ طلایی روشن برای دیده شدن روی مشکی */
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 50; /* بالاتر از لوگو قرار بگیره */
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  opacity: 0;
+  animation: flyText 2s ease-out forwards;
+}
+
+/* کی‌فریم پرتاب (حرکت به سمت پایین و چپ) */
+@keyframes flyText {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    /* مسیر حرکت برای دسکتاپ */
+    transform: translate(-200px, 150px) scale(1.2);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+/* تنظیمات اختصاصی موبایل برای اینکه متن دقیقاً دیده بشه */
+@media (max-width: 768px) {
+  @keyframes flyText {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      /* در موبایل مسیر حرکت کوتاه‌تره که از کادر بیرون نزنه */
+      transform: translate(-80px, 120px) scale(1);
+      opacity: 0;
+      filter: blur(4px);
+    }
+  }
+}

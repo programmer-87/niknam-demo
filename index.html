@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پخش پوشاک نیک‌نام | تولید و پخش لباس مردانه</title>
+  <meta name="description" content="مجموعه نیک‌نام، تأمین‌کننده پوشاک مردانه در بازار بزرگ تهران. ارسال فوری به سراسر کشور.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- فونت فارسی و انگلیسی لوکس -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            luxuryBlack: '#050505',
+            luxuryDark: '#111111',
+            luxuryGray: '#222222',
+            gold: '#D4AF37',
+            goldMuted: '#B8860B',
+            textGray: '#999999',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Vazirmatn', sans-serif; background-color: #050505; color: #fff; }
+    
+    /* دکمه‌های لوکس با گوشه‌های تیز */
+    .btn-gold { 
+      background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #B8860B 100%);
+      color: #000; 
+      transition: all 0.4s ease; 
+    }
+    .btn-gold:hover { 
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); 
+      letter-spacing: 1px;
+    }
+
+    /* خط طلایی زیر عنوان‌ها */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+
+    /* افکت هاور کارت محصولات */
+    .product-card {
+      transition: all 0.5s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 0 1px #D4AF37;
+    }
+  </style>
+</head>
+
+<body class="text-white overflow-x-hidden">
+
+  <!-- ================= هدر ================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-luxuryBlack/90 backdrop-blur-lg border-b border-white/5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+      
+      <!-- لوگو -->
+      <a href="#hero" class="flex items-center gap-4">
+        <img 
+          src="logo.webp" 
+          alt="لوگوی نیک‌نام" 
+          class="w-12 h-12 md:w-14 md:h-14 object-cover border border-gold/30 p-1 bg-black"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="hidden w-12 h-12 md:w-14 md:h-14 border border-gold/30 items-center justify-center">
+          <span class="font-serif text-2xl text-gold">N</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl md:text-2xl tracking-widest text-white">NIKNAM</span>
+          <span class="text-[9px] md:text-[10px] tracking-[0.2em] text-gold font-sans mt-1">MEN'S WEAR</span>
+        </div>
+      </a>
+      
+      <!-- منوی دسکتاپ -->
+      <nav class="hidden md:flex gap-8 items-center text-xs font-sans tracking-widest text-textGray">
+        <a href="#about" class="hover:text-gold transition">درباره ما</a>
+        <a href="#gallery" class="hover:text-gold transition">محصولات</a>
+        <a href="#contact" class="hover:text-gold transition">تماس</a>
+        <a href="https://rubika.ir/poshak_niknam20" target="_blank" class="btn-gold px-8 py-2.5 font-bold text-black font-vazir">سفارش عمده</a>
+      </nav>
+
+      <!-- دکمه منوی موبایل -->
+      <button id="mobile-menu-btn" class="md:hidden text-gold text-3xl focus:outline-none">
+        ☰
+      </button>
+    </div>
+
+    <!-- منوی کشویی موبایل -->
+    <div id="mobile-menu" class="hidden md:hidden bg-luxuryBlack border-t border-white/5">
+      <nav class="flex flex-col items-center py-6 gap-6 text-sm text-textGray">
+        <a href="#about" class="hover:text-gold transition">درباره ما</a>
+        <a href="#gallery" class="hover:text-gold transition">محصولات</a>
+        <a href="#contact" class="hover:text-gold transition">تماس</a>
+        <a href="https://rubika.ir/poshak_niknam20" target="_blank" class="btn-gold px-8 py-2.5 font-bold text-black font-vazir">ثبت سفارش عمده</a>
+      </nav>
+    </div>
+  </header>
+
+          <!-- ================= هیرو (صحنه اصلی) ================= -->
+  <section id="hero" class="relative min-h-screen flex items-center pt-24 pb-12 bg-luxuryBlack overflow-hidden">
+    
+    <!-- نورپردازی پس‌زمینه -->
+    <div class="gold-glow gold-glow-1"></div>
+    <div class="gold-glow gold-glow-2"></div>
+
+    <div class="max-w-7xl mx-auto px-4 w-full flex flex-col items-center text-center relative z-10">
+      
+      <!-- ۱. لوگوی کاملاً واضح با دایره و افکت پرتاب متن -->
+      <div class="relative mb-10">
+        <div class="relative p-2 border border-gold/30 rounded-sm bg-black/50 backdrop-blur-sm shadow-[0_0_30px_rgba(212,175,55,0.2)] logo-orbit" id="logo-container">
+          
+          <!-- دایره درخشان وسط لوگو -->
+          <div class="glow-point"></div>
+
+          <!-- کادر داخلی لوگو -->
+          <div class="absolute inset-0 border border-gold/10 m-2 pointer-events-none z-10"></div>
+          
+          <img 
+            src="logo.webp" 
+            alt="لوگوی نیک‌نام" 
+            class="w-56 h-56 md:w-72 md:h-72 object-cover relative z-10"
+            onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop'"
+          >
+        </div>
+      </div>
+
+      <!-- ۲. متن‌ها -->
+      <div class="flex justify-center mb-6">
+        <div class="w-16 h-[2px] bg-gold"></div>
+      </div>
+      
+      <h1 class="text-3xl md:text-5xl font-serif leading-tight mb-4 text-white">
+        اقتدار در <span class="text-gold">استایل مردانه</span>
+      </h1>
+      
+      <p class="text-sm md:text-base text-gray-400 font-light leading-relaxed mb-8 max-w-md font-sans">
+        تأمین کامل پوشاک مردانه با بالاترین کیفیت و تنوع. ارسال فوری به سراسر کشور از بازار بزرگ تهران.
+      </p>
+      
+      <!-- ۳. دکمه‌ها -->
+      <div class="flex flex-col w-full max-w-xs gap-3">
+        <a href="https://rubika.ir/poshakeniknam" target="_blank" class="w-full btn-gold px-8 py-4 text-sm font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+          ثبت سفارش عمده
+        </a>
+        <a href="#gallery" class="w-full border border-gold/30 text-gold hover:bg-gold hover:text-black transition px-8 py-4 text-sm font-light bg-transparent backdrop-blur-sm">
+          مشاهده کالکشن
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= مزیت‌ها ================= -->
+  <section id="about" class="py-20 border-y border-white/5 bg-luxuryDark">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 text-center">
+      
+      <div class="flex flex-col items-center">
+        <span class="text-gold text-3xl mb-4 font-serif">01</span>
+        <h3 class="text-sm font-bold tracking-widest mb-3 font-sans">تضمین کیفیت</h3>
+        <div class="w-8 h-[1px] bg-gold/50 mb-3"></div>
+        <p class="text-xs text-textGray leading-loose">استفاده از بهترین پارچه‌ها و دوخت استاندارد برای رضایت مشتریان شما.</p>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <span class="text-gold text-3xl mb-4 font-serif">02</span>
+        <h3 class="text-sm font-bold tracking-widest mb-3 font-sans">تنوع بی‌نظیر</h3>
+        <div class="w-8 h-[1px] bg-gold/50 mb-3"></div>
+        <p class="text-xs text-textGray leading-loose">بیش از صدها مدل متنوع برای پوشش تمام سلیقه‌ها در فروشگاه شما.</p>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <span class="text-gold text-3xl mb-4 font-serif">03</span>
+        <h3 class="text-sm font-bold tracking-widest mb-3 font-sans">ارسال فوری</h3>
+        <div class="w-8 h-[1px] bg-gold/50 mb-3"></div>
+        <p class="text-xs text-textGray leading-loose">ارسال مطمئن و سریع سفارشات از بازار تهران به سراسر نقاط کشور.</p>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- ================= محصولات ================= -->
+  <section id="gallery" class="py-24 px-4 bg-luxuryBlack relative">
+    <div class="max-w-7xl mx-auto relative z-10">
+      
+      <!-- عنوان بخش -->
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl mb-4 text-white">کالکشن <span class="text-gold italic">اختصاصی</span></h2>
+        <div class="gold-line w-24 mx-auto"></div>
+      </div>
+
+          <!-- گرید ۶ محصول (۲ ستونه در موبایل) -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 items-start">
+      
+      <!-- محصول ۱ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-1.webp" alt="شلوار لیوایز" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">شلوار لیوایز مردانه</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            سایزبندی: ۵۲ تا ۶۰<br>
+            سری ۱۰ عددی
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gold font-bold">۱٬۱۰۰٬۰۰۰ تومان</span>
+            <button onclick="addToCart('شلوار لیوایز مردانه', 1100000)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- محصول ۲ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-2.webp" alt="دورس لانگ اسلیو" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">دورس لانگ اسلیو</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            ۳ نخ پنبه داخل کرک، قواره عالی، یقه کشبافت<br>
+            سایز: L, XL, 2XL | ۲ رنگ<br>
+            پک ۶ عددی - تضمین کیفیت
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gold font-bold">۱٬۷۰۰٬۰۰۰ تومان</span>
+            <button onclick="addToCart('دورس لانگ اسلیو', 1700000)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- محصول ۳ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-3.webp" alt="دورس لاکرا" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">دورس ۲ نخ لاکرا</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            ۱۰۰٪ پنبه، لانگ اسلیو قاپک‌دار چاپی<br>
+            جین کار ۱۸ تایی - ۶ رنگ<br>
+            سایز: XL, 2X, 3X
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gold font-bold">۹۸۰٬۰۰۰ تومان</span>
+            <button onclick="addToCart('دورس ۲ نخ لاکرا', 980000)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- محصول ۴ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-4.webp" alt="دورس پنبه کرک" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">دورس ۳ نخ پنبه کرک</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            قواره عالی، یقه کشبافت<br>
+            سایز: L, XL, 2XL | ۲ رنگ<br>
+            پک ۶ عددی - تضمین کیفیت
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gold font-bold">۱٬۷۰۰٬۰۰۰ تومان</span>
+            <button onclick="addToCart('دورس ۳ نخ پنبه کرک', 1700000)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- محصول ۵ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-5.webp" alt="کاپشن سیلیکونی" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">کاپشن سیلیکونی مردانه</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            طراحی حرفه‌ای و جذاب<br>
+            سایزبندی: L, XL, XXL
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gray-400">استعلام قیمت</span>
+            <button onclick="addToCart('کاپشن سیلیکونی مردانه', 0)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- محصول ۶ -->
+      <article class="bg-luxuryDark border border-white/5 rounded-xl overflow-hidden group hover:border-gold/30 transition duration-300 flex flex-col">
+        <div class="relative w-full overflow-hidden bg-black/50">
+          <img src="product-6.webp" alt="کاپشن چرم" class="w-full h-auto object-contain block group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1520975954732-35dd22299614?q=80&w=600&auto=format&fit=crop'">
+        </div>
+        <div class="p-3 md:p-4 flex flex-col flex-grow bg-luxuryDark">
+          <h3 class="text-xs md:text-sm font-bold text-gray-200 mb-2">کاپشن چرم حرفه‌ای</h3>
+          <p class="text-[10px] md:text-xs text-gray-400 mb-3 leading-relaxed">
+            قواره‌دار و خوش‌فرم<br>
+            سایزبندی: L, XL, XXL<br>
+            پک‌های ۳ عددی
+          </p>
+          <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-3">
+            <span class="text-[10px] md:text-sm text-gray-400">استعلام قیمت</span>
+            <button onclick="addToCart('کاپشن چرم حرفه‌ای', 0)" class="text-gold hover:text-goldlight transition" title="افزودن به سبد خرید">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ================= تماس و ثبت سفارش ================= -->
+  <section id="contact" class="py-24 px-4 bg-luxuryDark border-t border-gold/10 relative">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+       <div class="absolute -top-40 -right-40 w-96 h-96 bg-gold/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="font-serif text-3xl md:text-4xl mb-4 text-white">تکمیل <span class="text-gold">سفارش</span></h2>
+        <p class="text-xs text-textGray font-sans tracking-widest">اطلاعات خود را وارد کنید تا سفارش شما ثبت شود</p>
+      </div>
+      
+      <!-- فرم ثبت سفارش -->
+      <div class="bg-black/60 border border-gold/20 p-6 md:p-10 shadow-2xl">
+        <!-- نمایش محصولات انتخاب شده -->
+        <div id="cart-items-container" class="mb-8 hidden">
+          <h3 class="text-gold font-bold mb-3 text-sm">محصولات انتخابی شما:</h3>
+          <ul id="cart-list" class="space-y-2 text-sm text-gray-300 border-b border-white/10 pb-4 mb-4"></ul>
+        </div>
+
+        <form id="order-form" class="space-y-5">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-xs text-gray-400 mb-2">نام و نام خانوادگی</label>
+              <input type="text" id="cust-name" required class="w-full bg-luxuryBlack border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-gold transition" placeholder="مثال: آیدین بیرام پور">
+            </div>
+            <div>
+              <label class="block text-xs text-gray-400 mb-2">شماره تماس</label>
+              <input type="tel" id="cust-phone" required class="w-full bg-luxuryBlack border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-gold transition" placeholder="09301269621">
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-2">آدرس دقیق پستی</label>
+            <textarea id="cust-address" required rows="3" class="w-full bg-luxuryBlack border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-gold transition" placeholder="استان، شهر، خیابان، پلاک، واحد..."></textarea>
+          </div>
+          
+          <button type="submit" class="w-full btn-gold py-4 font-bold text-sm md:text-base mt-4">
+            ثبت نهایی سفارش
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-8 text-center border-t border-white/5">
+    <p class="font-serif text-gold text-lg tracking-[0.3em] mb-2">NIKNAM</p>
+    <p class="text-[10px] text-gray-600 font-sans tracking-widest">© 1405 - تمامی حقوق محفوظ است.</p>
+  </footer>
+
+  <!-- ================= JS ================= -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.innerHTML = mobileMenu.classList.contains('hidden') ? '☰' : '✕';
+    });
+
+    // بستن منو هنگام کلیک روی لینک
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.innerHTML = '☰';
+      });
+    });
+  </script>
+
+  <script src="./main.js"></script>
+
+</body>
+</html>
